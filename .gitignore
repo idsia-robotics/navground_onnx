@@ -1,0 +1,6 @@
+dev
+archive
+experiment_*
+*.mp4
+.ipynb_checkpoints
+.DS_Store
