@@ -1,0 +1,26 @@
+time_step: 0.1
+steps: 30
+scenario:
+  groups:
+    -
+      type: thymio
+      number: 1
+      radius: 0.08
+      control_period: 0.05
+      color: firebrick
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.094
+        max_speed: 0.12
+      behavior:
+        type: CppPolicy
+        policy_path: policy.onnx
+        include_target_direction: true
+        flat: true
+      task:
+        type: Direction
+        direction: [1, 0]
+      orientation:
+        sampler: uniform
+        from: 0
+        to: 6.28

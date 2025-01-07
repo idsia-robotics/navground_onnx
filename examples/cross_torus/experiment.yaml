@@ -1,0 +1,40 @@
+time_step: 0.1
+steps: 1200
+scenario:
+  type: CrossTorus
+  agent_margin: 0.1
+  side: 2
+  groups:
+    -
+      type: thymio
+      number: 10
+      radius: 0.1
+      control_period: 0.1
+      speed_tolerance: 0.02
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.094
+        max_speed: 0.12
+      behavior:
+        type: CppPolicy
+        policy_path: 'policy.onnx'
+        include_target_direction: true
+        include_target_speed: true
+        include_velocity: true
+        include_angular_speed: true
+        max_acceleration: 1
+        max_angular_acceleration: 10
+        use_acceleration_action: true
+        flat: true
+        optimal_speed:
+          sampler: uniform
+          from: 0.03
+          to: 0.12
+      state_estimation:
+        type: Discs
+        number: 5
+        range: 1
+        max_speed: 0.12
+        max_radius: 0
+        use_nearest_point: true
+        include_valid: true

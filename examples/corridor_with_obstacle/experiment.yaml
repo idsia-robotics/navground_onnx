@@ -1,0 +1,47 @@
+time_step: 0.1
+steps: 200
+scenario:
+  type: CorridorWithObstacle
+  length: 1.0
+  width: 1.0
+  min_radius: 0.2
+  max_radius: 0.2
+  groups:
+    -
+      type: thymio
+      number: 1
+      radius: 0.08
+      control_period: 0.05
+      color: firebrick
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.094
+        max_speed: 0.12
+      behavior:
+        type: CppPolicy
+        policy_path: 'policy.onnx'
+        include_target_direction: true
+        include_velocity: true
+        include_angular_speed: true
+        flat: true
+        max_acceleration: 1.0
+        max_angular_acceleration: 10.0
+        use_acceleration_action: true
+      state_estimation:
+        type: Combination
+        sensors:
+          - type: Boundary
+            min_y: 0
+            max_y: 1
+            range: 1
+          - type: Discs
+            number: 1
+            range: 1
+            max_id: 0
+            max_speed: 0
+            max_radius: 0
+            include_valid: false
+            use_nearest_point: true
+
+    
+
