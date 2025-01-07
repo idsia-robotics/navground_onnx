@@ -2,17 +2,23 @@
  * @author Jerome Guzzi - <jerome@idsia.ch>
  */
 
-#include "navground/core/property.h"
 #include "navground_onnx/policy_behavior.h"
+#include "navground/core/property.h"
 #include "navground_onnx/shared_policy.h"
 
 namespace navground::onnx {
 
+PolicyBehavior::~PolicyBehavior() {
+  if (auto shared_policy = std::dynamic_pointer_cast<SharedPolicy>(_policy)) {
+    shared_policy->leave(*this);
+  }
+}
+
 void PolicyBehavior::prepare() {
   if (!_policy) {
     if (get_shared()) {
-      _policy =
-          SharedPolicy::join(*this, action_config, observation_config, _policy_path);
+      _policy = SharedPolicy::join(*this, action_config, observation_config,
+                                   _policy_path);
     } else {
       _policy = std::make_shared<Policy>(action_config, observation_config,
                                          _policy_path);

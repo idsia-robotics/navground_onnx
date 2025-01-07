@@ -63,6 +63,8 @@ public:
 
   Policy *get_policy() const { return _policy.get(); }
 
+  ~PolicyBehavior();
+
 private:
   std::filesystem::path _policy_path;
   bool _shared;

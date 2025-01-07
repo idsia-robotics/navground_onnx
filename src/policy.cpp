@@ -195,7 +195,7 @@ int64_t Policy::get_number_of_batches() const { return 1; }
 
 void Policy::prepare(const core::Behavior &behavior) {
   int64_t batches = get_number_of_batches();
-  std::cout << "Policy::prepare " << batches << std::endl;
+  // std::cout << "Policy::prepare " << batches << std::endl;
   _target_state.max_speed = behavior.get_max_speed();
   _target_state.max_angular_speed = behavior.get_angular_speed();
   _target_state.max_distance = behavior.get_horizon();
