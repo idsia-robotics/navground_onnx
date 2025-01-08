@@ -4,6 +4,7 @@
 
 #include "navground_onnx/policy.h"
 #include "navground_onnx/tensor_utils.h"
+#include "navground_onnx/io_utils.h"
 #include <algorithm>
 
 namespace navground::onnx {
@@ -188,6 +189,7 @@ Policy::Policy(const ControlActionConfig &action_config,
   sessionOptions.SetGraphOptimizationLevel(
       GraphOptimizationLevel::ORT_ENABLE_ALL);
   sessionOptions.SetIntraOpNumThreads(1);
+  SuppressStdErr s;
   _session = std::make_unique<Ort::Session>(_env, path.c_str(), sessionOptions);
 }
 

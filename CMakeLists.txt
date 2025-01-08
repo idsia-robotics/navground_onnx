@@ -28,7 +28,7 @@ generate_export_header(policy_behavior
 register_navground_plugins(TARGETS policy_behavior DESTINATION
                            $<IF:$<BOOL:${WIN32}>,bin,lib>)
 
-# add_subdirectory(dev)
+add_subdirectory(dev)
 
 install(
   TARGETS policy_behavior
