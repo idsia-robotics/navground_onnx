@@ -59,7 +59,7 @@ public:
 
   static const std::string type;
 
-  void prepare();
+  void prepare() override;
 
   Policy *get_policy() const { return _policy.get(); }
 

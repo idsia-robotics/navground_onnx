@@ -9,7 +9,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(navground_core REQUIRED)
+find_package(navground_core 0.5.0 REQUIRED)
 find_package(onnxruntime REQUIRED)
 
 include(GenerateExportHeader)
