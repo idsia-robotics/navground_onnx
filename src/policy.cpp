@@ -118,7 +118,7 @@ void EgoState::update(const core::Behavior &behavior, size_t index = 0) {
 void TargetState::update(const core::Behavior &behavior, size_t index = 0) {
   if (distance) {
     const auto value = behavior.get_target_distance();
-    distance[index] = std::min(value.value_or(0), max_distance);
+    distance[index] = std::min(value, max_distance);
     if (distance_valid) {
       distance_valid[index] = value ? 1 : 0;
     }
