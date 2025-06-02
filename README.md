@@ -4,8 +4,8 @@ This package contains a c++ implementation of `navground_learning` PolicyBehavio
 
 ## Install
 
-1. [Install](https://idsia-robotics.github.io/navground/0.5/installation/github_release.html) or [build](https://idsia-robotics.github.io/navground/0.5/installation/from_source.html) `navground_core` from source following the instructions and source the navground setup script
-2. [Setup](https://idsia-robotics.github.io/navground/0.5/installation/setup_dev.html) navground (depending on the operating system and on how you installed navground).
+1. [Install](https://idsia-robotics.github.io/navground/stable/installation/github_release.html) or [build](https://idsia-robotics.github.io/navground/stable/installation/from_source.html) `navground_core` from source following the instructions and source the navground setup script
+2. [Setup](https://idsia-robotics.github.io/navground/stable/installation/setup_dev.html) navground (depending on the operating system and on how you installed navground).
 2. [Install](https://onnxruntime.ai/docs/install) `onnxruntime`.
 3. Build `navground_onnx`:
   - using colcon:
@@ -70,7 +70,7 @@ which will print the list of properties exposed by `CppPolicy` and their default
 
 ## Usage
 
-Follow the [navground documentation](https://idsia-robotics.github.io/navground/0.5/index.html) to configure the behavior from YAML, e.g., 
+Follow the [navground documentation](https://idsia-robotics.github.io/navground/stable/index.html) to configure the behavior from YAML, e.g., 
 ```yaml
 ...
 behavior:
@@ -87,7 +87,7 @@ If `shared` is not set, each behavior instantiates its own copy of the onnx poli
 
 ## Examples
 
-The directory `examples` contains few examples of experiments configured to use `CppPolicy`. The policy have been trained in the corresponding [navground_learning tutorials](https://idsia-robotics.github.io/navground_learning/0.1/tutorials/index.html).
+The directory `examples` contains few examples of experiments configured to use `CppPolicy`. The policy have been trained in the corresponding [navground_learning tutorials](https://idsia-robotics.github.io/navground_learning/latest/tutorials/index.html).
 
 Execute them using the navground CLI, like:
 
