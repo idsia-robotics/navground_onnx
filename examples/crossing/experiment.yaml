@@ -1,0 +1,39 @@
+---
+time_step: 0.1
+steps: 1000
+scenario:
+  type: Cross
+  agent_margin: 0.1
+  side: 4
+  target_margin: 0.1
+  tolerance: 0.5
+  groups:
+    -
+      type: thymio
+      number: 20
+      radius: 0.1
+      control_period: 0.1
+      speed_tolerance: 0.02
+      color: red
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.094
+        max_speed: 0.12
+      behavior:
+        type: CppPolicy
+        policy_path: 'policy.onnx'
+        include_target_direction: true
+        include_target_distance: true
+        include_velocity: true
+        include_angular_speed: true
+        max_acceleration: 1
+        max_angular_acceleration: 10
+        use_acceleration_action: true
+        flat: true
+        shared: true
+      state_estimation:
+        type: Discs
+        number: 5
+        range: 5.0
+        max_speed: 0.12
+        max_radius: 0
